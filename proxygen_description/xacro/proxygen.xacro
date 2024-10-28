@@ -73,6 +73,24 @@
     </inertial>
   </link>
 
+  <!-- Dummy_Link -->
+  <link name="dummy_link">
+    <visual>
+      <origin xyz="0.0 0.0 ${base_height/2 + arm1_joint_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="${base_height + arm1_joint_height}"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+  <!-- Dummy_Joint -->
+  <joint name="dummy_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="dummy_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+
   <!-- Base_Link_Plate_Joint -->
   <joint name="base_link_plate_joint" type="revolute">
     <parent link="base_link"/>
