@@ -10,6 +10,8 @@ from launch.substitutions import Command, LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
+from launch.actions import LogInfo
+
 
 def generate_launch_description():
 
@@ -114,7 +116,7 @@ def generate_launch_description():
     
   declare_z_cmd = DeclareLaunchArgument(
     name='z',
-    default_value='0.05',
+    default_value='0.0',
     description='z component of initial position, meters')
     
   declare_roll_cmd = DeclareLaunchArgument(
@@ -137,10 +139,13 @@ def generate_launch_description():
     default_value='True',
     description='To pause the simulation in the start')
   
-  launch_arguments_gz_server = ['-s -v4 ', world]
-  if pause==False:
-    launch_arguments_gz_server = ['-r -s -v4 ', world]
-    
+  
+  ## paused state
+  launch_args = '-s -v4 '   
+  ## if pause==False then launch_args="-r -s -v4 "
+  launch_args = PythonExpression([
+        '"-s -v4 " if bool(', pause, ') else "-r -s -v4 "'
+  ])
     
   
   # Start Gazebo server
@@ -150,7 +155,7 @@ def generate_launch_description():
     condition=IfCondition(use_simulator),
     # launch_arguments={'gz_args': ['-r -s -v4 ', world], 'on_exit_shutdown': 'true'}.items())
     # launch_arguments={'gz_args': ['-s -v4 ', world], 'on_exit_shutdown': 'true'}.items()    #paused state
-    launch_arguments={'gz_args': launch_arguments_gz_server, 'on_exit_shutdown': 'true'}.items()    #paused state
+    launch_arguments={'gz_args': [launch_args, world], 'on_exit_shutdown': 'true'}.items()    #paused state
     )
 
   # Start Gazebo client    
@@ -237,6 +242,7 @@ def generate_launch_description():
   
   ld.add_action(start_gazebo_ros_spawner_cmd)
   # ld.add_action(start_gazebo_ros_bridge_cmd)
+  ld.add_action(LogInfo(msg=['Launch arguments: ', launch_args]))
 
   return ld
 

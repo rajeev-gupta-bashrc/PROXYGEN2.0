@@ -46,3 +46,8 @@ ros2 launch urdf_tutorial display.launch.py model:=$HOME/robotic_arm_ws/src/PROX
 ```
 ros2 launch proxygen_description gazebo.launch.py 
 ```
+- Note: Gazebo will launch in paused mode by default. If you don't want to launch it in paused mode, run this:
+```
+ros2 launch proxygen_description gazebo.launch.py paused:=False
+```
+
