@@ -51,3 +51,16 @@ ros2 launch proxygen_description gazebo.launch.py
 ros2 launch proxygen_description gazebo.launch.py paused:=False
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+## Ref:
+[How to Simulate a Robotic Arm in Gazebo – ROS 2](https://automaticaddison.com/how-to-simulate-a-robotic-arm-in-gazebo-ros-2/)
