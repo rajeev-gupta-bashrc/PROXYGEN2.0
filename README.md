@@ -37,8 +37,9 @@ sudo apt-get install ros-humble-urdf-tutorial
 ```
 ros2 launch urdf_tutorial display.launch.py model:=$HOME/robotic_arm_ws/src/PROXYGEN2.0/proxygen_description/xacro/proxygen.full.xacro
 ```
+![Robot in Action](https://github.com/rajeev-gupta-bashrc/PROXYGEN2.0/blob/main/images/arm_rviz.png)
 
-- You'll see a small window of sliders which can be used to change the angles of the robotic arm joints. 
+- You'll also see a small window of sliders which can be used to change the angles of the robotic arm joints. 
 
 
 ## Launch robot in Gazebo:
@@ -46,6 +47,9 @@ ros2 launch urdf_tutorial display.launch.py model:=$HOME/robotic_arm_ws/src/PROX
 ```
 ros2 launch proxygen_description gazebo.launch.py 
 ```
+
+![Robot in Action](https://github.com/rajeev-gupta-bashrc/PROXYGEN2.0/blob/main/images/arm_gazebo.png)
+
 - Note: Gazebo will launch in paused mode by default. If you don't want to launch it in paused mode, run this:
 ```
 ros2 launch proxygen_description gazebo.launch.py paused:=False
