@@ -22,7 +22,8 @@ def generate_launch_description():
   # ros_gz_bridge_config_file_path = 'config/ros_gz_bridge.yaml'
   rviz_config_file_path = 'rviz/proxygen_description.rviz'
   urdf_file_path = 'xacro/proxygen.main.xacro' 
-  world_file_path = 'worlds/empty.world' # e.g. 'worlds/empty.world', 'worlds/house.world'
+  # world_file_path = 'worlds/empty.world' # e.g. 'worlds/empty.world', 'worlds/house.world'
+  world_file_path = 'worlds/custom.world' # e.g. 'worlds/empty.world', 'worlds/house.world'
 
   # Set the path to different files and folders.  
   pkg_ros_gz_sim = FindPackageShare(package='ros_gz_sim').find('ros_gz_sim')  
@@ -53,6 +54,7 @@ def generate_launch_description():
   roll = LaunchConfiguration('roll')
   pitch = LaunchConfiguration('pitch')
   yaw = LaunchConfiguration('yaw')
+  pause = LaunchConfiguration('pause')
   
   # Declare the launch arguments  
   declare_robot_name_cmd = DeclareLaunchArgument(
@@ -130,6 +132,16 @@ def generate_launch_description():
     default_value='0.0',
     description='yaw angle of initial orientation, radians')
     
+  declare_pause_cmd = DeclareLaunchArgument(
+    name='pause',
+    default_value='True',
+    description='To pause the simulation in the start')
+  
+  launch_arguments_gz_server = ['-s -v4 ', world]
+  if pause==False:
+    launch_arguments_gz_server = ['-r -s -v4 ', world]
+    
+    
   
   # Start Gazebo server
   start_gazebo_server_cmd = IncludeLaunchDescription(
@@ -137,7 +149,8 @@ def generate_launch_description():
       os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
     condition=IfCondition(use_simulator),
     # launch_arguments={'gz_args': ['-r -s -v4 ', world], 'on_exit_shutdown': 'true'}.items())
-    launch_arguments={'gz_args': ['-s -v4 ', world], 'on_exit_shutdown': 'true'}.items()    #paused state
+    # launch_arguments={'gz_args': ['-s -v4 ', world], 'on_exit_shutdown': 'true'}.items()    #paused state
+    launch_arguments={'gz_args': launch_arguments_gz_server, 'on_exit_shutdown': 'true'}.items()    #paused state
     )
 
   # Start Gazebo client    
@@ -214,6 +227,7 @@ def generate_launch_description():
   ld.add_action(declare_roll_cmd)
   ld.add_action(declare_pitch_cmd)
   ld.add_action(declare_yaw_cmd)  
+  ld.add_action(declare_pause_cmd)  
 
   # Add any actions
   ld.add_action(start_gazebo_server_cmd)
