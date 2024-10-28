@@ -146,7 +146,7 @@ def generate_launch_description():
   launch_args = PythonExpression([
         '"-s -v4 " if bool(', pause, ') else "-r -s -v4 "'
   ])
-    
+  
   
   # Start Gazebo server
   start_gazebo_server_cmd = IncludeLaunchDescription(
@@ -211,6 +211,16 @@ def generate_launch_description():
   #   }],
   #   output='screen'
   # )  
+  
+  start_jsp = Node(
+      package='joint_state_publisher',
+      executable='joint_state_publisher',
+  )
+
+  start_jsp_gui = Node(
+      package='joint_state_publisher_gui',
+      executable='joint_state_publisher_gui',
+  )
     
   # Create the launch description and populate
   ld = LaunchDescription()
@@ -243,6 +253,8 @@ def generate_launch_description():
   ld.add_action(start_gazebo_ros_spawner_cmd)
   # ld.add_action(start_gazebo_ros_bridge_cmd)
   ld.add_action(LogInfo(msg=['Launch arguments: ', launch_args]))
+  ld.add_action(start_jsp)
+  ld.add_action(start_jsp_gui)
 
   return ld
 
