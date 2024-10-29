@@ -98,3 +98,5 @@ ros2 topic pub /joint_position_controller/commands  std_msgs/msg/Float64MultiArr
 [How to Simulate a Robotic Arm in Gazebo – ROS 2](https://automaticaddison.com/how-to-simulate-a-robotic-arm-in-gazebo-ros-2/)
 
 [TurtleBot3 Manipulation](https://github.com/ROBOTIS-GIT/turtlebot3_manipulation)
+
+[ign_ros2_control](https://control.ros.org/humble/doc/gz_ros2_control/doc/index.html)

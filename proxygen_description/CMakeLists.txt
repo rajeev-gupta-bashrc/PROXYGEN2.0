@@ -12,7 +12,6 @@ find_package(ros_gz REQUIRED)
 find_package(ros_gz_bridge REQUIRED)
 find_package(ros_gz_sim REQUIRED)
 find_package(ros_gz_image REQUIRED)
-#find_package(trajectory_msgs REQUIRED)
 find_package(xacro REQUIRED)
 
 # Define a CMake variable named dependencies that lists all
