@@ -1,0 +1,24 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    joint_position_controller:
+      type: position_controllers/JointGroupPositionController
+
+joint_position_controller:
+  ros__parameters:
+    joints:
+      - base_link_plate_joint
+      - base_plate_arm1_joint
+      - arm1_arm2_joint
+      - gripper
+      - gripper_sub
+      - end_effector_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

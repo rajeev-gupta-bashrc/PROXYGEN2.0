@@ -5,8 +5,9 @@
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find proxygen_description)/xacro/materials.xacro" />
 
-  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-  <!-- <xacro:include filename="$(find proxygen_description)/xacro/proxygen.gazebo.xacro" /> -->
+  <!-- Import all ROS2-control elements -->
+  <!-- <xacro:include filename="$(find proxygen_description)/xacro/proxygen.gz.control.xacro" /> -->
+  <xacro:include filename="$(find proxygen_description)/xacro/proxygen.ign.control.xacro" />
 
   <!-- Import xacro -->
   <xacro:include filename="$(find proxygen_description)/xacro/proxygen.xacro" />

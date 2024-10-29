@@ -1,9 +1,23 @@
 # PROXYGEN2.0
-Robotic arm in ros2 humble using moveit2. To use this package, make sure you've installed ros2 humble and gazebo harmonic from the official source.
+Robotic arm in ros2 humble. To use this package, make sure you've installed ros2 humble and gazebo ignition from the official source. We've used joint position controllers for the arm which works well only when you've installed the recommended gazebo version for ros2 humble. 
+
+Make sure you've installed the following packages:
 
 [ROS2_Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 
-[Gazebo_Harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu/)
+[Gazebo_Ignition](https://gazebosim.org/docs/latest/ros_installation/)
+
+- install ros2 controllers:
+
+```
+sudo apt-get install ros-humble-ros2-controllers ros-humble-ros2-control
+```
+
+- install ignition control:
+
+```
+sudo apt-get install ros-humble-ign-ros2-control
+```
 
 
 ## Clone this repo into your worksapce, if you don't have a ros workspace yet, create one:
@@ -55,9 +69,23 @@ ros2 launch proxygen_description gazebo.launch.py
 ros2 launch proxygen_description gazebo.launch.py paused:=False
 ```
 
+## Launch arm with controllers:
 
+```
+ros2 launch proxygen_control proxygen_ros2_control.launch.py
+```
 
+- List ros2 topics available:
 
+```
+ros2 topic list
+```
+
+- Send commands to the arm: We'll pass an array of 6 float values which are the joint angles/positions for the arm.
+
+```
+ros2 topic pub /joint_position_controller/commands  std_msgs/msg/Float64MultiArray "{data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}"
+```
 
 
 
