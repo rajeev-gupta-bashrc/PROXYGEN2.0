@@ -3,20 +3,22 @@ Robotic arm in ros2 humble. To use this package, make sure you've installed ros2
 
 Make sure you've installed the following packages:
 
-ROS 2 Humble: [ROS2_Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
+[ROS2_Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 
-Gazebo Ignition:
+[Gazebo Ignition](https://gazebosim.org/docs/harmonic/install_ubuntu/)
+
+- Install ros-gz:
 ```
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 ```
 
-- install ros2 controllers:
+- Install ros2 controllers:
 
 ```
 sudo apt-get install ros-humble-ros2-controllers ros-humble-ros2-control
 ```
 
-- install ignition control:
+- Install ignition control:
 
 ```
 sudo apt-get install ros-humble-ign-ros2-control
