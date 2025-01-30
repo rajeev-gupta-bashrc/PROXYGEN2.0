@@ -3,7 +3,7 @@ Robotic arm in ros2 humble using moveit2. To use this package, make sure you've 
 
 [ROS2_Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 
-[Gazebo_Harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu/)
+[Gazebo_Harmonic](https://gazebosim.org/docs/fortress/install_ubuntu/)
 
 
 ## Clone this repo into your worksapce, if you don't have a ros workspace yet, create one:
