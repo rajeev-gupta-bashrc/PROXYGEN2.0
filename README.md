@@ -91,7 +91,7 @@ ros2 topic list
 ```
 ros2 topic pub /joint_position_controller/commands  std_msgs/msg/Float64MultiArray "{data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}"
 ```
-
+ 
 
 
 
