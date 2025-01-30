@@ -5,7 +5,7 @@ Make sure you've installed the following packages:
 
 [ROS2_Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 
-[Gazebo Ignition](https://gazebosim.org/docs/harmonic/install_ubuntu/)
+[Gazebo Ignition](https://gazebosim.org/docs/fortress/install_ubuntu/)
 
 - Install ros-gz:
 ```
