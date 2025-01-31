@@ -28,7 +28,7 @@ set(dependencies
 # uses to search for header files. This is important for C++
 # projects where you have custom header files that are not located
 # in the standard system include paths.
-include_directories(include)
+#include_directories(include)
 
 
 # Copy necessary files to designated locations in the project
@@ -37,10 +37,10 @@ install (
   DESTINATION share/${PROJECT_NAME}
 )
 
-install(
-  DIRECTORY include/
-  DESTINATION include
-)
+#install(
+#  DIRECTORY include/
+#  DESTINATION include
+#)
 
 # Install Python modules for import
 #ament_python_install_package(${PROJECT_NAME})
