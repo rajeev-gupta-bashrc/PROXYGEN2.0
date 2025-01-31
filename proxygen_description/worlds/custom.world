@@ -21,12 +21,12 @@
     <plugin filename="gz-sim-scene-broadcaster-system"
       name="gz::sim::systems::SceneBroadcaster">
     </plugin>
-    <plugin filename="gz-sim-air-pressure-system"
-      name="gz::sim::systems::AirPressure">
-    </plugin>
-    <plugin filename="gz-sim-air-speed-system"
-      name="gz::sim::systems::AirSpeed">
-    </plugin>
+#    <plugin filename="gz-sim-air-pressure-system"
+#      name="gz::sim::systems::AirPressure">
+#    </plugin>
+#    <plugin filename="gz-sim-air-speed-system"
+#      name="gz::sim::systems::AirSpeed">
+#    </plugin>
     <plugin filename="gz-sim-altimeter-system"
       name="gz::sim::systems::Altimeter">
     </plugin>
@@ -36,9 +36,9 @@
     <plugin filename="gz-sim-magnetometer-system"
       name="gz::sim::systems::Magnetometer">
     </plugin>
-    <plugin filename="gz-sim-navsat-system"
-      name="gz::sim::systems::NavSat">
-    </plugin>
+#    <plugin filename="gz-sim-navsat-system"
+#      name="gz::sim::systems::NavSat">
+#    </plugin>
 
     <scene>
       <ambient>1.0 1.0 1.0</ambient>
